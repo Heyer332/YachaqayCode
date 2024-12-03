@@ -45,7 +45,7 @@ fun FondoPantalla(modifier: Modifier=Modifier)
         ) {
             Image(
                 painter = painterResource(id = R.drawable.python),
-                contentDescription = "Logo de YachaqayCode",
+                contentDescription = "Logo de achaqayCode",
                 modifier=modifier
                     .height(100.dp)
             )
