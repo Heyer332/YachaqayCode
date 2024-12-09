@@ -21,24 +21,24 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 
-@Preview(showSystemUi = true)
+
+
 
 @Composable
-fun FondoPantalla(modifier: Modifier=Modifier)
-                    {
-    Box(modifier=modifier
-        .fillMaxSize()
-        .background(
-            brush = Brush.verticalGradient(
-            colors = listOf(
-            Color.White,
-            Color(0xFFA8F5F0)
-        )
-    ))
-    ){
+fun FondoPantalla(navController: NavController) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(
+                brush = Brush.verticalGradient(
+                    colors = listOf(Color.White, Color(0xFFA8F5F0))
+                )
+            )
+    ) {
         Column(
-            modifier=modifier
+            modifier = Modifier
                 .fillMaxSize()
                 .padding(top = 64.dp),
             horizontalAlignment = Alignment.CenterHorizontally
@@ -46,12 +46,13 @@ fun FondoPantalla(modifier: Modifier=Modifier)
             Image(
                 painter = painterResource(id = R.drawable.python),
                 contentDescription = "Logo de achaqayCode",
-                modifier=modifier
-                    .height(100.dp)
+                modifier = Modifier.height(100.dp)
             )
             Spacer(modifier = Modifier.height(24.dp))
-            Button(onClick = {}) {
-                Text(text = "iniciar sesion")
+            Button(
+                onClick = { navController.navigate(route = appcambio.inicio_sesion.route) }
+            ) {
+                Text(text = "Iniciar sesión")
             }
             Spacer(modifier = Modifier.height(48.dp))
 
@@ -60,11 +61,11 @@ fun FondoPantalla(modifier: Modifier=Modifier)
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            Button(onClick = {}) {
+            Button(
+                onClick = { /* Acción para registrarse */ }
+            ) {
                 Text(text = "Registrate")
             }
         }
-
-
     }
 }
