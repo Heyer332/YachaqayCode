@@ -62,7 +62,7 @@ fun FondoPantalla(navController: NavController) {
             Spacer(modifier = Modifier.height(24.dp))
 
             Button(
-                onClick = { /* Acción para registrarse */ }
+                onClick = { navController.navigate(route = appcambio.crear_cuenta.route) }
             ) {
                 Text(text = "Registrate")
             }

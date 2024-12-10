@@ -15,6 +15,17 @@ fun Appnevegation(){
           composable(route = appcambio.inicio_sesion.route){
                inicio_sesion(navController)
           }
+          composable(route = appcambio.crear_cuenta.route){
+               crear_cuenta(navController)
+          }
+          composable(route = appcambio.CreaTuPerfilScreen.route)
+          {
+               CreaTuPerfilScreen(navController)
+          }
+          composable(route = appcambio.selecionar_nivel.route)
+          {
+               selecionar_nivel(navController)
+          }
      }
 
 }
