@@ -95,7 +95,7 @@ fun selecionar_nivel(navController: NavController) {
 
             // Botón "Continuar"
             Button(
-                onClick = { /* Acción para continuar */ },
+                onClick = { navController.navigate(route = appcambio.inicioxd.route) },
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF1F1A6B)),
                 modifier = Modifier
                     .fillMaxWidth(0.6f)

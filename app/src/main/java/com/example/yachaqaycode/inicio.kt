@@ -16,10 +16,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.text.font.FontWeight
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
-@Preview(showSystemUi = true)
+
 @Composable
-fun YachaQayScreen() {
+fun inicioxd(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -34,7 +36,7 @@ fun YachaQayScreen() {
                 .fillMaxSize()
                 .padding(top = 40.dp)
         ) {
-            // Barra superior personalizada (sin TopAppBar)
+            // Barra superior personalizada
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -68,31 +70,46 @@ fun YachaQayScreen() {
                     .padding(top = 20.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                // Tarjetas
-                CardButton(text = "Introducción", modifier = Modifier.padding(bottom = 16.dp))
-                CardButton(text = "Cursos", modifier = Modifier.padding(bottom = 16.dp))
-                CardButton(text = "Tareas", modifier = Modifier.padding(bottom = 16.dp))
-                CardButton(text = "Recursos", modifier = Modifier.padding(bottom = 16.dp))
+                // Tarjetas con navegación
+                CardButton(
+                    text = "Introducción",
+                    modifier = Modifier.padding(bottom = 16.dp),
+                    onClick = { navController.navigate(appcambio.PantallaIntroduccion.route) }
+                )
+                CardButton(
+                    text = "Cursos",
+                    modifier = Modifier.padding(bottom = 16.dp),
+                    onClick = {  navController.navigate(route = appcambio.CursosScreen.route)}
+                )
+                CardButton(
+                    text = "Tareas",
+                    modifier = Modifier.padding(bottom = 16.dp),
+                    onClick = { navController.navigate(appcambio.Tareasxd.route) }
+                )
+                CardButton(
+                    text = "Recursos",
+                    modifier = Modifier.padding(bottom = 16.dp),
+                    onClick = {  }
+                )
             }
         }
     }
 }
 
+
 @Composable
 fun CardButton(
     text: String,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit
 ) {
-    Box(
+    Button(
+        onClick = onClick,
         modifier = modifier
             .fillMaxWidth(0.8f)
-            .height(120.dp)
-            .background(
-                color = Color(0xFF5BA1B1), // Puedes cambiar este color o usar otro
-                shape = RoundedCornerShape(16.dp)
-            )
-            .padding(16.dp),
-        contentAlignment = Alignment.Center
+            .height(120.dp),
+        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF5BA1B1)),
+        shape = RoundedCornerShape(16.dp)
     ) {
         Text(
             text = text,
@@ -100,4 +117,10 @@ fun CardButton(
             style = TextStyle(fontSize = 24.sp, fontWeight = FontWeight.Bold)
         )
     }
+}
+@Preview
+@Composable
+fun preview_inicio() {
+    val navController = rememberNavController()
+    inicioxd(navController)
 }

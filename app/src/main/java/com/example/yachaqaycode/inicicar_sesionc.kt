@@ -86,11 +86,11 @@ fun inicio_sesion(navController: NavController) {
             Spacer(modifier = Modifier.height(24.dp))
 
             Button(
-                onClick = { navController.navigate(route = appcambio.FondoPantalla.route)},
+                onClick = { navController.navigate(route = appcambio.inicioxd.route)},
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(48.dp)
-                    .padding(horizontal = 14.dp) // Márgenes horizontales
+                    .padding(horizontal = 14.dp)
             ) {
                 Text(
                     text = "Iniciar sesión",
